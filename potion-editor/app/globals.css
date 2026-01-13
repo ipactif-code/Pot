@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Plate Editor Styles */
+.slate-editor {
+  @apply relative px-[96px] py-16;
+}
+
+.slate-editor.fullWidth {
+  @apply px-16;
+}
+
+.slate-editor.smallText {
+  @apply text-sm;
+}
+
+/* Selection Styles */
+.slate-selected {
+  @apply bg-accent;
+}
+
+/* Link Styles */
+.slate-link {
+  @apply cursor-pointer text-primary underline decoration-primary;
+}
+
+/* Comment Highlight */
+.slate-comment {
+  @apply bg-yellow-100/50 dark:bg-yellow-900/30;
+}
+
+/* Suggestion Styles */
+.slate-suggestion {
+  @apply bg-blue-100/50 dark:bg-blue-900/30;
+}
+
+/* Media Resize Handles */
+.media-resize-handle {
+  @apply absolute z-10 cursor-col-resize;
+}
+
+/* Block Menu */
+.block-menu-trigger {
+  @apply opacity-0 group-hover:opacity-100 transition-opacity;
+}
+
+/* Floating Toolbar */
+.floating-toolbar {
+  @apply animate-zoom;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom {
+  animation: zoom 0.15s ease-out;
+}
+
+/* Code Block */
+.code-block {
+  @apply relative rounded-lg bg-muted;
+}
+
+.code-line {
+  @apply px-4 py-1;
+}
+
+/* Table */
+.table-wrapper {
+  @apply overflow-auto;
+}
+
+.table-cell {
+  @apply border border-border p-2;
+}
+
+/* Callout */
+.callout {
+  @apply flex gap-3 rounded-lg border p-4;
+}
+
+/* Toggle */
+.toggle-icon {
+  @apply transition-transform duration-200;
+}
+
+.toggle-icon.open {
+  @apply rotate-90;
+}
+
+/* Scrollbar Styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-muted-foreground/20 hover:bg-muted-foreground/30;
+}
